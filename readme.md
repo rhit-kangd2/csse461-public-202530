@@ -10,7 +10,7 @@ I find managing my Python environment simpler in Linux, so my workflow is based 
 welcome to set up a Windows-based Python environment if you prefer. Our course's officially 
 supported environment is Python in Jupyter Lab, running the packages listed in `requirements.txt`.
 
-## Windows Setup
+## Windows Setup (GUI all the way)
 
 1. Download and install [Anaconda Python](https://www.anaconda.com/download). You want the 64-bit 
 version for Windows with the graphical installer. (The registration is skippable!) The default install
@@ -27,6 +27,40 @@ select all the packages first, and then click Install.)
 
 5. To launch Jupyter Lab: from the Home tab of Anaconda Navigator, with the `csse461` environment
 selected, click on Jupyter Lab. (There may be a first time install.)
+
+## Windows Setup (command line)
+(These tips were submitted by a student. If you go this route and want to offer any improvements,
+please email them to me. I'll treat that as a course bugfix and you'll earn a token amount of 
+extra credit.)
+
+If you'd like to use anaconda, but you don't want to deal with Anaconda Navigator or the manual process to add
+packages, try this:
+
+1. Download and install Anaconda Python as above.
+
+2. Launch the "Anaconda Prompt" app.
+
+3. Create a new Python environment:
+```
+conda create --name csse461
+```
+
+4. Navigate to the place where you cloned our course repo. YOu should be in the folder containing
+this readme and `requirements.txt`.
+
+5a. Install the course packages with this command:
+```
+conda install --yes --file requirements.txt
+```
+
+5b. If you have trouble with that, here's a backup approach:
+```
+pip install -r requirements.txt
+```
+(The backup approach doesn't use the clever `conda` dependency resolution program. It 
+just tries to grab the Python packages that you ask for. This is usually fine if you
+don't plan on upgrading packages in your environment. Using `pip` and `conda` in the 
+same environment can lead to unexpected problems.
 
 ## Linux Setup
 
