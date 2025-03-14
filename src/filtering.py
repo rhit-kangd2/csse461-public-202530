@@ -78,15 +78,16 @@ def grad(img):
     return np.dstack((dx, dy))
 
 def grad_mag(img):
-
+    dx = convolve(img, sobel_x)
+    dy = convolve(img, sobel_y)
     return np.sqrt(dx ** 2 + dy ** 2)
 
 def down_2x(img):
     """ Downsample img by a factor of 2 in each dimension.
     Use prefiltering to avoid aliasing. 
     Pre: img is grayscale (2d) """
-    out = separable_filter(img, gauss1d5)
-    return out[::2,::2]
+    # TODO: prefiltering
+    return img[::2,::2]
 
 def down_4x(img):
     return down_2x(down_2x(img))
